@@ -5,16 +5,21 @@ public class Communaute {
 	private boolean Agglomeration[][];
 	private Ville villesList[];
 	public Communaute() {
-		Agglomeration=new boolean[26][26];
-		villesList=new Ville[26];
+		this.Agglomeration=new boolean[26][26];
+		this.villesList=new Ville[26];
 		//initialization ?
 	}
 	public Communaute(Ville vList[]) {
-		Agglomeration=new boolean[26][26];
-		villesList=vList;
+		this.Agglomeration=new boolean[26][26];
+		this.villesList=vList;
 		//veri
 	}
-	
+
+	public Communaute(boolean Agglo[][],Ville vList[]) {
+		//Verifier la symétrie de la matrice
+		this.Agglomeration=Agglot;
+		this.villesList=vList;
+	}
 	public void addRoad(String nomA, String nomB) {
 		addRoad(getVilleKey(nomA),getVilleKey(nomB));
 	}
