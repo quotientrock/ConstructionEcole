@@ -7,7 +7,7 @@ public class Communaute {
 	public Communaute() {
 		this.Agglomeration=new boolean[26][26];
 		this.villesList=new Ville[26];
-		//initialization ?
+		//initialization s?
 	}
 	public Communaute(Ville vList[]) {
 		this.Agglomeration=new boolean[26][26];
@@ -16,7 +16,7 @@ public class Communaute {
 	}
 
 	public Communaute(boolean Agglo[][],Ville vList[]) {
-		//Verifier la symétrie de la matrice
+		//Verifier la symÃ©trie de la matrice
 		this.Agglomeration=Agglot;
 		this.villesList=vList;
 	}
