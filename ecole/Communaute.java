@@ -4,13 +4,13 @@ public class Communaute {
 	
 	private boolean Agglomeration[][];
 	private Ville villesList[];
-	public Communaute() {
-		this.Agglomeration=new boolean[26][26];
-		this.villesList=new Ville[26];
+	public Communaute(int size) {
+		this.Agglomeration=new boolean[size][size];
+		this.villesList=new Ville[size];
 		//initialization s?
 	}
-	public Communaute(Ville vList[]) {
-		this.Agglomeration=new boolean[26][26];
+	public Communaute(Ville vList[],int size) {
+		this.Agglomeration=new boolean[size][size];
 		this.villesList=vList;
 		//veri
 	}
@@ -47,7 +47,7 @@ public class Communaute {
 		return Agglomeration[a][b];
 	}
 	public void addVille(Ville ville) {
-	//exception ville max	
+	//exception ville max	2
 		villesList[villesList.length+1]=ville;
 		
 	}
