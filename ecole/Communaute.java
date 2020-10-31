@@ -40,10 +40,12 @@ public class Communaute {
 			}
 		}
 	}
-	public boolean estVoisins(int a, int b) {
+	public boolean estVoisins(String nomA, String nomB){
+		return estVoisins(getVilleKey(nomA),getVilleKey(nomB));
+	}
+	private boolean estVoisins(int a, int b) {
 		return Agglomeration[a][b];
 	}
-	
 	public void addVille(Ville ville) {
 	//exception ville max	
 		villesList[villesList.length+1]=ville;
