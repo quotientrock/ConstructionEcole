@@ -61,13 +61,13 @@ public class Communaute {
 	 * @return true si la matrice est symétrique
 	 */
 	private static boolean isSymetric(boolean matrix[][]) {
-		if (Agglo[0].length!=Agglo[1].length) {
+		if (matrix[0].length!=matrix[1].length) {
 			return false;
 		}
 		else {
-		for (int i=0;i<Agglo[0].length);i++){
-			for (int j=0;j<Agglo[j].length;j++) {
-				if(Agglo[i][j]!=Agglo[j][i]) {
+		for (int i=0;i<matrix[0].length);i++){
+			for (int j=0;j<matrix[j].length;j++) {
+				if(matrix[i][j]!=matrix[j][i]) {
 					return false;
 				}
 			}
