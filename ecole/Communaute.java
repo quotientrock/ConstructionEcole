@@ -113,6 +113,14 @@ public class Communaute {
 		}
 	}
 	/**
+	 * Méhode permettant de récupérer le nom d'une ville à partir d'un numéro
+	 * @param numéro d'une ville
+	 * @return nom de la ville
+	 */
+	private String getVilleName(int i) {
+		return villesTab[i].getName();
+	}
+	/**
 	 * Méthode permettant de vérifier si deux villes sont voisines
 	 * @param nom d'une ville
 	 * @param nom de la ville à relié
@@ -131,13 +139,27 @@ public class Communaute {
 		return Agglomeration[a][b];
 	}
 	/**
+	 * Méthode permettant d'afficher les villes ayant une écoles et leur nombre
+	 */
+	public void afficheEcoleVille() {
+		int i=0;
+		int sum=0;
+		while(this.villesTab[i]!=NULL && i<this.villesTab.length) {
+			if(this.villesTab.hasEcole()) {
+				System.out.print(this.villesTab.getName()+" ");
+				sum++;
+			}
+			i++;
+		}
+		System.out.println("\n Le nombre de villes ayant une école est:"+sum);
+	}
+	/**
 	 * Méthode permettant d'ajouter une ville à la communaute
 	 * @param la ville à ajouter
 	 * @return si la ville a été ajouté ou non
 	 */
 	public boolean addVille(Ville uneVille) {
 		boolean ajoutVille=false;
-		int i=0;
 		for(int i=0;i<this.villesTab.length;i++) {
 			if (this.villesTab[i]==NULL) {
 				this.villesTab[i]=uneVille;
@@ -149,6 +171,5 @@ public class Communaute {
 			System.out.println("L'ajout de la ville n'a pas été effectué.");
 		}
 		return ajoutVille;
-		
 	}
 }

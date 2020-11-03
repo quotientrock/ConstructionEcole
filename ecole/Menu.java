@@ -11,7 +11,23 @@ public class Menu {
 		System.out.println("nombre de villes(entre 1 et 25) : ");
 		Scanner sc = new Scanner(System.in);
 		int nb = sc.nextInt();
-		Communaute com= new Communaute(nb);
+		//Communaute com= new Communaute(nb);
+		//Creation ville et ajout ville
+		System.out.println("nombre ville"+nb);
+		Communaute com=new Communaute(4);
+
+		Ville ville1=new Ville("ville1",test);
+		Ville ville2=new Ville("Ville2",test);
+		Ville ville3=new Ville("Ville3",test);
+		Ville ville4=new Ville("Ville4",test);
+		Ville ville5=new Ville("Ville5",test);
+
+		test.addVille(ville1);
+		test.addVille(ville2);
+		test.addVille(ville3);
+		test.addVille(ville4);
+		test.addVille(ville5);
+		//fin creation ville et ajout ville
 		while(nb<26 && choix!=2) {
 			System.out.println(" 1 : ajouter une route ");
 			System.out.println(" 2 : Fin ");
