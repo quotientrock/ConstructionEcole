@@ -43,15 +43,15 @@ public class Ville {
 	/**Méthode permettant de supprimer une ecole a la ville
 	 */
 	public void supprEcole() {
-		if (isEcole()==true) {
+		if (this.ecole) {
 			int access=1;
-			for(int i=0;i<com.getVillesTab().length && access==1;i++) {
-				if(com.estVoisins(this.getNom(),com.getVillesTab()[i].getNom())) {
-					ecole=true;
-					if(!(com.getVillesTab()[i].isEcole())) {
+			for(int i=0;i<com.getVilles().length && access==1;i++) {
+				if(com.estVoisins(this.nom,this.com.getVilles()[i].getName())) {
+					this.ecole=true;
+					if(!(com.getVilles()[i].hasEcole())) {
 						for(int j=0;j<com.getVillesTab().length;j++) {
-							if(com.estVoisins(com.getVillesTab()[i].getNom(), com.getVillesTab()[j].getNom())) {
-								if(com.getVillesTab()[j].getNom()!=this.getNom() && (com.getVillesTab()[j].isEcole())) {
+							if(this.com.estVoisins(this.com.getVilles()[i].getName(), com.getVilles()[j].getName())) {
+								if(com.getVilles()[j].getNom()!=this.getName() && (com.getVilles()[j].hasEcole())) {
 									ecole=false;
 								}
 								else access=0;
@@ -79,14 +79,14 @@ public class Ville {
 	
 	/**Getter 
 	 * @return ecole*/
-	public boolean isEcole() {
+	public boolean hasEcole() {
 		return ecole;
 	}
 
 	/**Getter
 	 * @return nom
 	 */
-	public String getNom() {
+	public String getName() {
 		return nom;
 	}
 

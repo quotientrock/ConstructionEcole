@@ -55,6 +55,11 @@ public class Communaute {
 			this.villesTab=new Ville[size];
 		}
 	}
+	
+	public Ville getVilles() {
+		return this.VillesTab;
+		
+	}
 	/**
 	 * Méthode permettant de vérifier la symétrie d'une matrice de booléen
 	 * @param matrice de booleen
