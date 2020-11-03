@@ -145,6 +145,9 @@ public class Communaute {
 				break;
 			}
 		}
+		if (!ajoutVille) {
+			System.out.println("L'ajout de la ville n'a pas été effectué.");
+		}
 		return ajoutVille;
 		
 	}
