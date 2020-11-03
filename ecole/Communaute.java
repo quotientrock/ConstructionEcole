@@ -129,9 +129,23 @@ public class Communaute {
 	 */
 	private boolean estVoisins(int a, int b) {
 		return Agglomeration[a][b];
-	}j
-	public void addVille(Ville ville) {
-		villesTab[villesTab.length+1]=ville;
+	}
+	/**
+	 * Méthode permettant d'ajouter une ville à la communaute
+	 * @param la ville à ajouter
+	 * @return si la ville a été ajouté ou non
+	 */
+	public boolean addVille(Ville uneVille) {
+		boolean ajoutVille=false;
+		int i=0;
+		for(int i=0;i<this.villesTab.length;i++) {
+			if (this.villesTab[i]==NULL) {
+				this.villesTab[i]=uneVille;
+				ajoutVille=true;
+				break;
+			}
+		}
+		return ajoutVille;
 		
 	}
 }
