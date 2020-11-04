@@ -20,6 +20,9 @@ public class Communaute {
 	public Communaute(int size) {
 		this.Agglomeration=new boolean[size][size];
 		this.villesTab=new Ville[size];
+		for(int i=0;i<size;i++) {
+			this.villesTab[i]=Ville(true,"ville"+Integer.toString(i),this);
+		}
 	}
 	/**
 	 * Constructeur d'une communauté permettant de d'initialiser les attributs
@@ -95,7 +98,7 @@ public class Communaute {
 	 * @param numéro représentant une ville
 	 * @param numéro représentant une autre ville à relié
 	 */
-	private void addRoad(int a,int b) {
+	public void addRoad(int a,int b) {
 		this.Agglomeration[a][b]=true;
 		this.Agglomeration[b][a]=true;
 	}
@@ -105,7 +108,7 @@ public class Communaute {
 	 * @param nom d'une ville
 	 * @return numéro d'une ville
 	 */
-	private int getVilleKey(String nom) {
+	public int getVilleKey(String nom) {
 		int i=0;
 		for (i=0;i<this.villesTab.length;i++) {
 			if(nom==villesTab[i]) {
@@ -122,7 +125,7 @@ public class Communaute {
 	 * @param numéro d'une ville
 	 * @return nom de la ville
 	 */
-	private String getVilleName(int i) {
+	public String getVilleName(int i) {
 		return villesTab[i].getName();
 	}
 	/**
@@ -140,7 +143,7 @@ public class Communaute {
 	 * @param numéro de la ville à relié
 	 * @return true si les deux villes sont voisines
 	 */
-	private boolean estVoisins(int a, int b) {
+	public boolean estVoisins(int a, int b) {
 		return Agglomeration[a][b];
 	}
 	/**
