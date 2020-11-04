@@ -35,6 +35,7 @@ public class Menu {
 			}
 		}
 		while(choix>=1 || choix<=2) {
+			com.afficheEcoleVille();
 			System.out.println(" 1 : ajouter une ecole ");
 			System.out.println(" 2 : supprimer une ecole ");
 			System.out.println(" 3 : fin ");
