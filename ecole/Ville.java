@@ -1,7 +1,7 @@
 package ecole;
 
 public class Ville {
-	private String nom;
+	private char nom;
 	private boolean ecole;
 	private Communaute com;
 	
@@ -12,7 +12,7 @@ public class Ville {
 	 * @param com   donne la communaute associee a la ville
 	 */
 
-	public Ville(boolean ecole, String nom, Communaute com) {
+	public Ville(boolean ecole, char nom, Communaute com) {
 		this.com=com;
 		this.nom=nom;
 		this.ecole=ecole;
@@ -23,7 +23,7 @@ public class Ville {
 	 * @param nom   donne un nom a la ville 
 	 * @param com   donne la communaute associee a la ville
 	 */
-	public Ville(String nom, Communaute com) {
+	public Ville(char nom, Communaute com) {
 		this.com=com;
 		this.nom=nom;
 		ecole=true;
@@ -43,6 +43,7 @@ public class Ville {
 	/**Méthode permettant de supprimer une ecole a la ville
 	 */
 	public void supprEcole() {
+		int suppr=0;
 		if (this.ecole) {
 			int access=1;
 			for(int i=0;i<com.getVilles().length && access==1;i++) {
@@ -58,12 +59,20 @@ public class Ville {
 							}
 						}
 					}
-					else ecole=false;
+					else {
+						ecole=false;
+						suppr=1;
+					}
 				}
+			}
+			if(suppr==0 ) {
+				ecole=true;
+				System.out.println(" Aucune ecole dans une ville adjacente");
 			}
 		}
 		else 
 			System.out.println(" Aucune ecole dans la ville");
+		
 	}
 	
 	
@@ -86,7 +95,7 @@ public class Ville {
 	/**Getter
 	 * @return nom
 	 */
-	public String getName() {
+	public char getName() {
 		return nom;
 	}
 
