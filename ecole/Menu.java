@@ -6,17 +6,11 @@ public class Menu {
 
 	public static void main(String[] args) {
 		int choix=1;
-		int ville1, ville2;
-		String ecole;
+		String ville1="", ville2="";
 		System.out.println("nombre de villes(entre 1 et 25) : ");
 		Scanner sc = new Scanner(System.in);
 		int nb = sc.nextInt();
-		//Communaute com= new Communaute(nb);
-		//Creation ville et ajout ville
-		System.out.println("nombre ville"+nb);
-		Communaute com=new Communaute(nb);
-
-		//fin creation ville et ajout ville
+		Communaute com= new Communaute(nb);
 		while(nb<26 && choix!=2) {
 			System.out.println(" 1 : ajouter une route ");
 			System.out.println(" 2 : Fin ");
@@ -24,18 +18,18 @@ public class Menu {
 			switch (choix) {
 			case 1:
 				System.out.println(" Premiere ville : ");
-				ville1=sc.nextInt();
+				ville1=sc.nextLine();
 				System.out.println(" Deuxieme ville : ");
-				ville2=sc.nextInt();
-				Communaute.addRoad(ville1,ville2);
-				break:
+				ville2=sc.nextLine();
+				com.addRoad(ville1,ville2);
+				break;
 					
 			default:
 				break;
 			}
 		}
 		while(choix>=1 || choix<=2) {
-			com.afficheEcoleVille();
+			com.afficheEcoleVille(nb);
 			System.out.println(" 1 : ajouter une ecole ");
 			System.out.println(" 2 : supprimer une ecole ");
 			System.out.println(" 3 : fin ");
@@ -43,25 +37,19 @@ public class Menu {
 			switch(choix) {
 			case 1:
 				System.out.println(" Dans quelle ville ajouter l'ecole ?  ");
-				ville1=sc.nextInt();
-				com.getVilles()[ville1].addEcole();
+				ville1=sc.nextLine();
+				com.getVilles()[com.getVilleKey(ville1)].addEcole();
 				break;
 				
 			case 2:
 				System.out.println(" Dans quelle ville supprimer l'ecole ?  ");
-				ville2=sc.nextInt();
-				com.getVilles()[ville2].supprEcole();
+				ville2=sc.nextLine();
+				com.getVilles()[com.getVilleKey(ville2)].supprEcole();
 			default:
 				break;
 			}
-			ecole="";
-			for(int i=0;i<nb;i++) {
-				if(com.getVilles()[i].hasEcole==true)
-					ecole=ecole+" "+i;
-					
-			}
-			System.out.println(ecole);
 		}
+		sc.close();
 	}
 
 }
