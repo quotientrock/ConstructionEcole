@@ -32,15 +32,15 @@ public class Ville {
 		
 		
 	
-	/**Méthode permettant d'ajouter une ecole a la ville
+	/**MÃ©thode permettant d'ajouter une ecole a la ville
 	 */
 	public void addEcole() {
-		if (isEcole()==false)
+		if (hasEcole()==false)
 		ecole=true;
 		else
 			System.out.println(" Deja une ecole dans la ville");
 	}
-	/**Méthode permettant de supprimer une ecole a la ville
+	/**MÃ©thode permettant de supprimer une ecole a la ville
 	 */
 	public void supprEcole() {
 		if (this.ecole) {
@@ -49,9 +49,9 @@ public class Ville {
 				if(com.estVoisins(this.nom,this.com.getVilles()[i].getName())) {
 					this.ecole=true;
 					if(!(com.getVilles()[i].hasEcole())) {
-						for(int j=0;j<com.getVillesTab().length;j++) {
+						for(int j=0;j<com.getVilles().length;j++) {
 							if(this.com.estVoisins(this.com.getVilles()[i].getName(), com.getVilles()[j].getName())) {
-								if(com.getVilles()[j].getNom()!=this.getName() && (com.getVilles()[j].hasEcole())) {
+								if(com.getVilles()[j].getName()!=this.getName() && (com.getVilles()[j].hasEcole())) {
 									ecole=false;
 								}
 								else access=0;
@@ -71,7 +71,7 @@ public class Ville {
 	public boolean equals(Object object) {
 		boolean result = false;
 			Ville ville = (Ville) object;
-			if (this.isEcole() == ville.isEcole() ) {
+			if (this.hasEcole() == ville.hasEcole() ) {
 				result = true;
 			}
 			return result;
