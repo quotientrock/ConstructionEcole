@@ -43,7 +43,7 @@ public class Menu {
 		}
 		sc.close();
 	}
-	public static void configureEcoles(Communaute com,int nb) {
+	public static void configureEcoles(Communaute com) {
 		int nb=com.getVilles().length;
 		Scanner sc = new Scanner(System.in);
 		int choix=1;
