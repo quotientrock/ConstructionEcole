@@ -61,7 +61,9 @@ public class Communaute {
 			this.villesTab=new Ville[size];
 		}
 	}
-	
+	/**
+	* Méthode retournant le tableau des villes de la communaute
+	*/
 	public Ville[] getVilles() {
 		return villesTab;
 		
