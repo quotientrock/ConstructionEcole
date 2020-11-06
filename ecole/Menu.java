@@ -11,27 +11,25 @@ public class Menu {
 	 * Méthode créeant une communaute selon les instructions de l'utilisateur
 	 * @return Communaute voulu par l'utilisateur
 	 */
-	public static Communaute configureCommunaute() {
+	public static Communaute configureCommunaute(Scanner sc) {
 		int nb=0;
-		Scanner sc = new Scanner(System.in);
 		do{
-		System.out.println("nombre de villes(entre 1 et 25) : ");
+		System.out.println("nombre de villes(entre 1 et 26) : ");
 		int nb = sc.nextInt();
-		}while(nb<1 && nb>25);
+		}while(nb<1 && nb>26);
 		Communaute com= new Communaute(nb);
 		com.afficheEcoleVille(nb);
-		sc.close();
 		return com;
 	}
 	/**
 	 * Méthode permettant de configurer les routes d'une communauté jusqu'a l'interruption de l'utilisateur
 	 */
-	public static void configureRoutes(Communaute com) {
+	public static void configureRoutes(Communaute com,Scanner sc) {
 		int nb=com.getVilles().length;
 		int choix=1;
 		char ville1=' ', ville2=' ';
-		Scanner sc = new Scanner(System.in);
-		while(nb<26 && choix!=2) {
+
+		while(nb<=26 && choix!=2) {
 			System.out.println(" 1 : ajouter une route ");
 			System.out.println(" 2 : Fin ");
 			choix =sc.nextInt();
@@ -50,14 +48,12 @@ public class Menu {
 				break;
 			}
 		}
-		sc.close();
 	}
 	/**
 	 * Méthode permettant de configurer les écoles d'une communauté
 	 */
-	public static void configureEcoles(Communaute com) {
+	public static void configureEcoles(Communaute com,Scanner sc) {
 		int nb=com.getVilles().length;
-		Scanner sc = new Scanner(System.in);
 		int choix=1;
 		char ville1=' ', ville2=' ';
 		while(choix>=1 && choix<=2) {
@@ -81,6 +77,5 @@ public class Menu {
 				break;
 			}
 		}
-		sc.close();
 	}
 }
