@@ -1,4 +1,5 @@
 package ecole;
+import java.util.Scanner;
 
 
 public class ConfigureEcole {
