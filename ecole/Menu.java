@@ -1,11 +1,16 @@
 package ecole;
 
 import java.util.Scanner;
-
+/**
+ * Classe utilitaire facilitant la configuration d'une communaute à l'aide de méthode.
+ */
 public class Menu {
 
 	
-	
+	/**
+	 * Méthode créeant une communaute selon les instructions de l'utilisateur
+	 * @return Communaute voulu par l'utilisateur
+	 */
 	public static Communaute configureCommunaute() {
 
 		System.out.println("nombre de villes(entre 1 et 25) : ");
@@ -16,7 +21,9 @@ public class Menu {
 		sc.close();
 		return com;
 	}
-	
+	/**
+	 * Méthode permettant de configurer les routes d'une communauté jusqu'a l'interruption de l'utilisateur
+	 */
 	public static void configureRoutes(Communaute com) {
 		int nb=com.getVilles().length;
 		int choix=1;
@@ -43,6 +50,9 @@ public class Menu {
 		}
 		sc.close();
 	}
+	/**
+	 * Méthode permettant de configurer les écoles d'une communauté
+	 */
 	public static void configureEcoles(Communaute com) {
 		int nb=com.getVilles().length;
 		Scanner sc = new Scanner(System.in);
