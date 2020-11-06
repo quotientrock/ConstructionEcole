@@ -2,27 +2,29 @@ package ecole;
 
 import java.util.Scanner;
 /**
- * Classe utilitaire facilitant la configuration d'une communaute à l'aide de méthode.
+ * Classe utilitaire facilitant la configuration d'une communaute Ã  l'aide de mÃ©thode.
  */
 public class Menu {
 
 	
 	/**
-	 * Méthode créeant une communaute selon les instructions de l'utilisateur
+	 * MÃ©thode crÃ©eant une communaute selon les instructions de l'utilisateur
 	 * @return Communaute voulu par l'utilisateur
 	 */
 	public static Communaute configureCommunaute() {
-
-		System.out.println("nombre de villes(entre 1 et 25) : ");
+		int nb=0;
 		Scanner sc = new Scanner(System.in);
+		do{
+		System.out.println("nombre de villes(entre 1 et 25) : ");
 		int nb = sc.nextInt();
+		}while(nb<1 && nb>25);
 		Communaute com= new Communaute(nb);
 		com.afficheEcoleVille(nb);
 		sc.close();
 		return com;
 	}
 	/**
-	 * Méthode permettant de configurer les routes d'une communauté jusqu'a l'interruption de l'utilisateur
+	 * MÃ©thode permettant de configurer les routes d'une communautÃ© jusqu'a l'interruption de l'utilisateur
 	 */
 	public static void configureRoutes(Communaute com) {
 		int nb=com.getVilles().length;
@@ -51,7 +53,7 @@ public class Menu {
 		sc.close();
 	}
 	/**
-	 * Méthode permettant de configurer les écoles d'une communauté
+	 * MÃ©thode permettant de configurer les Ã©coles d'une communautÃ©
 	 */
 	public static void configureEcoles(Communaute com) {
 		int nb=com.getVilles().length;
