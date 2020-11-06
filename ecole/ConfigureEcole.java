@@ -4,10 +4,12 @@ package ecole;
 public class ConfigureEcole {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Communaute com=Menu.configureCommunaute(sc);
+		Menu.configureRoutes(com,sc);
+		Menu.configureEcoles(com,sc);
 		
-		Communaute com=Menu.configureCommunaute();
-		Menu.configureRoutes(com);
-		Menu.configureEcoles(com);
+		sc.close();
 		
 	}
 	
