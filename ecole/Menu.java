@@ -15,7 +15,7 @@ public class Menu {
 		int nb=0;
 		do{
 		System.out.println("nombre de villes(entre 1 et 26) : ");
-		int nb = sc.nextInt();
+		nb = sc.nextInt();
 		}while(nb<1 && nb>26);
 		Communaute com= new Communaute(nb);
 		com.afficheEcoleVille(nb);
