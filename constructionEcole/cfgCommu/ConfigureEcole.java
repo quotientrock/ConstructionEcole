@@ -1,4 +1,4 @@
-package ecole;
+package constructionEcole.cfgCommu;
 import java.util.Scanner;
 
 
