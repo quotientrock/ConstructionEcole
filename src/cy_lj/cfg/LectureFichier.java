@@ -23,7 +23,6 @@ public class LectureFichier {
 		BufferedReader bReader=new BufferedReader( fReader ) ;
 		String ligne= null ;
 		try {
-			while ((ligne = bReader.readLine()) != null )
   
 			while ((ligne = bReader.readLine()) != null && ligne.startsWith("ville")) {
 					villes.add(new Ville((ligne.substring(6,7)),com));
