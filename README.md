@@ -12,3 +12,4 @@ TODO
 4-c)nombre négatif  
 4-d)documentation menu  X
 4-e)GESTION EXCEPTIONS  
+C'est possible tu te co discord pour discuter de ceux qu'il faut faire ?
