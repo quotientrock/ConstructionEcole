@@ -1,28 +1,31 @@
 package cy_lj.cfg;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 /**
- * Classe utilitaire facilitant la configuration d'une communaute Ã  l'aide de mÃ©thode.
- * Cette classe regroupe les mÃ©thodes qui fournissent les options de configuration Ã  l'utilisateur.
+ * Classe utilitaire facilitant la configuration d'une communaute à l'aide de méthode.
+ * Cette classe regroupe les méthodes qui fournissent les options de configuration à l'utilisateur.
  */
 public class Menu {
 
 	/**
-	 * MÃ©thode qui va permettre de proposer de maniÃ¨re intÃ©ractive Ã  l'utilisateur des commandes de
-	 * rÃ©solution du problÃ¨me de configuration d'ecole
+	 * Méthode qui va permettre de proposer de manière intéractive à l'utilisateur des commandes de
+	 * résolution du problème de configuration d'ecole
 	 * @param scanner permettant de recuperer le choix de l'utilisateur
 	 * @param chemin du fichier contenant la communaute
 	 */
 	public static void menuUtilisateur(Scanner sc,String fileName) {
-		System.out.println("DÃ©marrage du menu pour la rÃ©solution du problÃ¨me des Ã©coles !");
+		System.out.println("Démarrage du menu pour la résolution du problème des écoles !");
 
 		Communaute com=configureCommunaute(fileName);
 		// try
 		int reponseUser;
 		do {
 			System.out.println("Quel option voulez vous choisir ?:");
-			System.out.println("1) RÃ©soudre manuellement");
-			System.out.println("2) RÃ©soudre automatiquement");
+			System.out.println("1) Résoudre manuellement");
+			System.out.println("2) Résoudre automatiquement");
 			System.out.println("3) Sauvegarder");
 			System.out.println("4) Fin");
 			reponseUser=sc.nextInt();
@@ -37,19 +40,20 @@ public class Menu {
 				break;
 			case 3:
 				System.out.println("Vous avez choisi l'option 3");
+				sauvegarde(com,sc);
 				break;
 			case 4:
 				System.out.println("Vous avez terminer le programme !");
 			default:
 				System.out.println("Vous avez choisi l'option :"+reponseUser+"!");
-				System.out.println("Aucune option trouvÃ© !");
-				System.out.println("Veuillez reitÃ©rez votre choix !");
+				System.out.println("Aucune option trouvé !");
+				System.out.println("Veuillez reitérez votre choix !");
 				break;
 			}
 		}while(reponseUser!=4);
 	}
 	/**
-	 * MÃ©thode crÃ©eant une communaute selon les instructions de l'utilisateur
+	 * Méthode créeant une communaute selon les instructions de l'utilisateur
 	 * @param fileName chemin du fichier contenant la communaute
 	 * @return Communaute voulu par l'utilisateur
 	 */
@@ -59,10 +63,10 @@ public class Menu {
 		return com;
 	}
 	/**
-	 * MÃ©thode permettant de configurer les routes d'une communautÃ© jusqu'a l'interruption de l'utilisateur,
-	 * on peut ainsi ajouter des routes entres 2 villes de maniÃ¨re intÃ©ractive
-	 * @param communaute qui doit Ãªtre configurÃ©
-	 * @param sc scanner pour rÃ©cuper une entrÃ©e utilisateur
+	 * Méthode permettant de configurer les routes d'une communauté jusqu'a l'interruption de l'utilisateur,
+	 * on peut ainsi ajouter des routes entres 2 villes de manière intéractive
+	 * @param communaute qui doit être configuré
+	 * @param sc scanner pour récuper une entrée utilisateur
 	 */
 	public static void configureRoutes(Communaute com,Scanner sc) {
 		int nb=com.getVilles().length;
@@ -90,12 +94,12 @@ public class Menu {
 		}
 	}
 	/**
-	 * MÃ©thode permettant de configurer les Ã©coles d'une communautÃ©,
-	 * elle ajoute des Ã©coles dans une ville choisi de maniÃ¨re intÃ©ractive
-	 * @param com dont on souhaite rajouter des Ã©coles
-	 * @param sc scanner pour rÃ©cuper une entrÃ©e utilisateur
+	 * Méthode permettant de configurer les écoles d'une communauté,
+	 * elle ajoute des écoles dans une ville choisi de manière intéractive
+	 * @param com dont on souhaite rajouter des écoles
+	 * @param sc scanner pour récuper une entrée utilisateur
 	 */
-	public static void resolutionManuelle(Communaute com,Scanner sc) {
+	private static void resolutionManuelle(Communaute com,Scanner sc) {
 		int choix=1;
 		String ville1="", ville2="";
 		while(choix>=1 && choix<=2) {
@@ -122,12 +126,44 @@ public class Menu {
 	}
 	
 	/**
-	 * MÃ©thode permet de donner une solution optimale du problÃ¨me des ecoles.
+	 * Méthode permet de donner une solution optimale du problème des ecoles.
 	 * 
 	 * @param com la communaute ou il faut trouver une solution
 	 */
-	public static void resolutionAutomatique(Communaute com) {
+	private static void resolutionAutomatique(Communaute com) {
 		AlgorithmeEcole.algoEcole(com);
 		com.afficheEcoleVille();
+	}
+	
+	/**
+	 * Méthode permet de sauvegarder la solution dans un fichier.
+	 * 
+	 * @param com la communaute de la solution
+	 * @param sc scanner pour recuperer l'emplacement du fichier 
+	 */
+	private static void sauvegarde(Communaute com, Scanner sc) {
+		System.out.println("Emplacement du fichier ? ");
+		try {
+			BufferedWriter bW= new BufferedWriter(new FileWriter(sc.nextLine()));
+			for(int i=0;i<com.getVilles().length;i++) {
+				bW.write("ville(" +com.getVilles()[i].getName()+").\n");
+			}
+			for(int i=0;i<com.getVilles().length;i++) {
+				for( int j=0+i;j<com.getVilles().length;i++) {
+					if (com.estVoisins(i, j)) {
+						bW.write("route(" +com.getVilles()[i].getName()+","+com.getVilles()[j].getName()+").\n");
+					}
+				}
+			}
+			for(int i=0;i<com.getVilles().length;i++) {
+				if(com.getVilles()[i].hasEcole()) {
+					bW.write("ecole(" +com.getVilles()[i].getName()+").\n");
+				}	
+			}
+			bW.close();
+		} catch (IOException e) {
+			System.out.println("Probleme lors de l'ecriture");
+			e.printStackTrace();
+		}
 	}
 }
