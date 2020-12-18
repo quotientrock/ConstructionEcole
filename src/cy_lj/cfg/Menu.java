@@ -11,6 +11,7 @@ public class Menu {
 	 * Méthode qui va permettre de proposer de manière intéractive à l'utilisateur des commandes de
 	 * résolution du problème de configuration d'ecole
 	 * @param scanner permettant de recuperer le choix de l'utilisateur
+	 * @param chemin du fichier contenant la communaute
 	 */
 	public static void menuUtilisateur(Scanner sc,String fileName) {
 		System.out.println("Démarrage du menu pour la résolution du problème des écoles !");
@@ -31,7 +32,7 @@ public class Menu {
 				break;
 			case 2:
 				System.out.println("Vous avez choisi l'option 2");
-				resolutionAutomatique(com,fileName);
+				resolutionAutomatique(com);
 				break;
 			case 3:
 				System.out.println("Vous avez choisi l'option 3");
@@ -45,7 +46,7 @@ public class Menu {
 	}
 	/**
 	 * Méthode créeant une communaute selon les instructions de l'utilisateur
-	 * @param scanner un objet permettant de récupérer une entrée utilisateur
+	 * @param fileName chemin du fichier contenant la communaute
 	 * @return Communaute voulu par l'utilisateur
 	 */
 	public static Communaute configureCommunaute(String fileName) {
@@ -57,6 +58,7 @@ public class Menu {
 	 * Méthode permettant de configurer les routes d'une communauté jusqu'a l'interruption de l'utilisateur,
 	 * on peut ainsi ajouter des routes entres 2 villes de manière intéractive
 	 * @param communaute qui doit être configuré
+	 * @param sc scanner pour récuper une entrée utilisateur
 	 */
 	public static void configureRoutes(Communaute com,Scanner sc) {
 		int nb=com.getVilles().length;
@@ -86,7 +88,8 @@ public class Menu {
 	/**
 	 * Méthode permettant de configurer les écoles d'une communauté,
 	 * elle ajoute des écoles dans une ville choisi de manière intéractive
-	 * @param communaute dont on souhaite rajouter des écoles
+	 * @param com dont on souhaite rajouter des écoles
+	 * @param sc scanner pour récuper une entrée utilisateur
 	 */
 	public static void resolutionManuelle(Communaute com,Scanner sc) {
 		int choix=1;
