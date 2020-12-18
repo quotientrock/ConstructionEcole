@@ -1,4 +1,5 @@
 package cy_lj.cfg;
+import up.mi.jgm.td01.*;
 /**
  * Classe permettant de représenter et manipuler une communauté
  * d'ensemble de villes
@@ -177,5 +178,76 @@ public class Communaute {
 			System.out.println("L'ajout de la ville n'a pas été effectué.");
 		}
 		return ajoutVille;
+	}
+	/**
+	 * Méthode permettant d'obtenir le nombre de voisins d'une ville
+	 * @param ville où on veut obtenir le nombre de voisins
+	 * @return nombre de voisins de la ville données en paramètres
+	 * à check
+	 */
+	public int nbVoisins(Ville uneVille) {
+		int indiceVille=getVilleKey(uneVille.getName());
+		int nbVoisinsVille=0;
+		for(boolean voisins : agglomeration[indiceVille]) {
+			if(voisins) {
+				nbVoisinsVille++;
+			}
+		}
+		return nbVoisinsVille;
+	}
+	/**
+	 * Methode qui trie un tableau par selection et la renvoie. Le tri par selection consiste a
+	 * chercher l'element le plus petit du tableau, et a l'echanger avec le premier
+	 * element. Le processus est reitere pour le deuxieme plus petit qui est echange
+	 * avec le deuxieme element du tableau, etc, jusqu'a ce que le tableau soit
+	 * trie.
+	 * L'element le plus petit ici est l'indice de la ville dont le nombre de voisins est le plus petit
+	 * PS:Ces méthodes ont été faite Jean-Guy-mally mais ont été modifiées
+	 * @param tab le tableau a trier.
+	 * @return le tableau des indices d'une villes trié par odre croissant du nombre de voisins d'une ville
+	 */
+	public Ville[] getTabSortedByDegree() {
+		Ville[] tab=this.getVilles();
+		
+		for (int i = 0; i < tab.length - 1; i++) {
+			int indiceMin = rechercheIndicePlusPetit(tab, i);
+			if (indiceMin != i) {
+				echanger(tab, i, indiceMin);
+			}
+		}
+		return tab;
+	}
+
+	/**
+	 * Methode qui permet d'obtenir l'indice du plus petit element d'un tableau a
+	 * partir d'une position donnee
+	 * L'element le plus petit ici est l'indice de la ville dont le nombre de voisins est le plus petit
+	 * 
+	 * @param tab       le tableau dont on cherche le plus petit element
+	 * @param indiceMin la position a partir de laquelle on recherche le plus petit
+	 *                  element
+	 * @return l'indice du plus petit element de tab situe apres la position
+	 *         indiceMin
+	 */
+	private int rechercheIndicePlusPetit(Ville[] tab, int indiceMin) {
+		for (int j = indiceMin + 1; j < tab.length; j++) {
+			if (nbVoisins(tab[j]) < nbVoisins(tab[indiceMin])) {
+				indiceMin = j;
+			}
+		}
+		return indiceMin;
+	}
+
+	/**
+	 * Methode qui echange deux elements d'un tableau, donnes par leur position
+	 * 
+	 * @param tab le tableau dans lequel on echange deux elements
+	 * @param i   l'indice du premier element a echanger
+	 * @param j   l'indice du second element a echanger
+	 */
+	private static void echanger(Ville[] tab, int i, int j) {
+		Ville tmpVal = tab[i];
+		tab[i] = tab[j];
+		tab[j] = tmpVal;
 	}
 }
