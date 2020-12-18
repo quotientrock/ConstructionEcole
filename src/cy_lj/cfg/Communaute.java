@@ -117,6 +117,7 @@ public class Communaute {
 	public int getVilleKey(String nom){
 
 		for (int i=0;i<this.villesTab.length;i++) {
+			//System.out.println("nom!"+nom+"name"+this.villesTab[i].getName());
 			if(nom.equals(this.villesTab[i].getName())) {
 				return i;
 			}

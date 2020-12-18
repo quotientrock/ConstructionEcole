@@ -110,7 +110,7 @@ public class Menu {
 	 */
 	private static void resolutionManuelle(Communaute com,Scanner sc) {
 		int choix=1;
-		String ville1="", ville2="";
+		String ville1=" ", ville2=" ";
 		while(choix>=1 && choix<=2) {
 			System.out.println(" 1 : ajouter une ecole ");
 			System.out.println(" 2 : supprimer une ecole ");
@@ -137,6 +137,7 @@ public class Menu {
 					break;
 				}
 				try {
+				System.out.println(com.getVilleKey(ville1));
 				com.getVilles()[com.getVilleKey(ville1)].addEcole();
 				}catch(Exception e) {
 					System.out.println("Problème d'entrée");
