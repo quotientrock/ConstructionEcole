@@ -1,4 +1,5 @@
-package constructionEcole.cfgCommu;
+package cy_lj.cfg;
+
 import java.util.Scanner;
 
 

@@ -1,5 +1,4 @@
-package constructionEcole.cfgCommu;
-
+package cy_lj.cfg;
 /**
  * Classe permettant de représenter et manipuler une communauté
  * d'ensemble de villes

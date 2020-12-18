@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"constructionEcole.cfgCommu","l":"Communaute"},{"p":"constructionEcole.cfgCommu","l":"ConfigureEcole"},{"p":"constructionEcole.cfgCommu","l":"Menu"},{"p":"constructionEcole.cfgCommu","l":"Ville"}]
