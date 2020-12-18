@@ -5,8 +5,14 @@ package cy_lj.cfg;
  *
  */
 public class AlgorithmeEcole {
-	
+	/**
+	 * Cette algorithme trouve une solution en supprimer les villes ayant le moins de voisins 
+	 * jusqu'aux villes ayant les plus grands voisins
+	 * @param comu Communaute où il faut trouver une solution
+	 * @return Communaute avec la solution
+	 */
 	public static Communaute algoEcole(Communaute comu) {
+		//Obtenir une liste trie par odre croissant en fonction du nombre de voisins des villes
 		Communaute com=comu;
 		Ville[] tabVilles=com.getTabSortedByDegree();
 		
@@ -17,7 +23,8 @@ public class AlgorithmeEcole {
 				tabVilles[j].addEcole();
 			}
 		}
-		//System.out.println("ok");
+		//On supprime les villes ayant le moins de voisins
+		//Le principe est d'avoir le plus de villes déservant un grand nombre d'autres villes
 		for (int i=0;i<tabVilles.length;i++) {
 			tabVilles[i].supprEcole();
 		//	System.out.println(tabVilles[i].getName());
@@ -25,7 +32,12 @@ public class AlgorithmeEcole {
 		return com;
 	}
 	
-	
+	/**
+	 * méthode du sujet permettant d'obtenir une solution au problème
+	 * @param com communauté
+	 * @param k nombre d'iteration pour l'algorithme
+	 * @return commuanute avec une solution pour les ecoles
+	 */
 	public static Communaute algo2Sujet(Communaute com,int k) {
 		int i=0;
 		Communaute meilleurCom=com;

@@ -281,9 +281,6 @@ public class Communaute {
 				nbEcole++;
 			}
 		}
-		this.afficheVille();
-		this.afficheEcoleVille();
-		System.out.println(nbEcole);
 		return nbEcole;
 	}
 }

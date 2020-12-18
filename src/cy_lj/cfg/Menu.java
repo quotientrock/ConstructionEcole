@@ -69,7 +69,6 @@ public class Menu {
 	 */
 	public static Communaute configureCommunaute(String fileName) {
 		Communaute com= LectureFichier.Configure(fileName);
-		com.afficheEcoleVille();
 		return com;
 	}
 	/**
@@ -146,8 +145,13 @@ public class Menu {
 				
 			case 2:
 				System.out.println(" Dans quelle ville supprimer l'ecole ?  ");
+				try {
 				ville2=sc.nextLine();
 				com.getVilles()[com.getVilleKey(ville2)].supprEcole();
+				}catch(Exception e) {
+					System.out.println("Problème d'entrée");
+					sc.next();
+				}
 				break;
 			default:
 				System.out.println("Vous avez choisi une entrée incorrecte !");
@@ -162,7 +166,7 @@ public class Menu {
 	 * @param com la communaute ou il faut trouver une solution
 	 */
 	private static void resolutionAutomatique(Communaute com) {
-		Communaute solution=AlgorithmeEcole.algo2Sujet(com, 1);
+		Communaute solution=AlgorithmeEcole.algo2Sujet(com, 100);
 		solution.afficheEcoleVille();
 	}
 	
