@@ -1,5 +1,4 @@
 package cy_lj.cfg;
-import up.mi.jgm.td01.*;
 /**
  * Classe permettant de représenter et manipuler une communauté
  * d'ensemble de villes
