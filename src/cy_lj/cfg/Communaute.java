@@ -142,6 +142,7 @@ public class Communaute {
 				tabVoisins[indiceNbVoisins]=this.villesTab[i];
 			}
 		}
+		System.out.println(tabVoisins);
 		return tabVoisins;
 	}
 	/**

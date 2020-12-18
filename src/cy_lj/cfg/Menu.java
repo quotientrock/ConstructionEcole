@@ -5,27 +5,27 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 /**
- * Classe utilitaire facilitant la configuration d'une communaute à l'aide de méthode.
- * Cette classe regroupe les méthodes qui fournissent les options de configuration à l'utilisateur.
+ * Classe utilitaire facilitant la configuration d'une communaute ï¿½ l'aide de mï¿½thode.
+ * Cette classe regroupe les mï¿½thodes qui fournissent les options de configuration ï¿½ l'utilisateur.
  */
 public class Menu {
 
 	/**
-	 * Méthode qui va permettre de proposer de manière intéractive à l'utilisateur des commandes de
-	 * résolution du problème de configuration d'ecole
+	 * Mï¿½thode qui va permettre de proposer de maniï¿½re intï¿½ractive ï¿½ l'utilisateur des commandes de
+	 * rï¿½solution du problï¿½me de configuration d'ecole
 	 * @param scanner permettant de recuperer le choix de l'utilisateur
 	 * @param chemin du fichier contenant la communaute
 	 */
 	public static void menuUtilisateur(Scanner sc,String fileName) {
-		System.out.println("Démarrage du menu pour la résolution du problème des écoles !");
+		System.out.println("Dï¿½marrage du menu pour la rï¿½solution du problï¿½me des ï¿½coles !");
 
 		Communaute com=configureCommunaute(fileName);
 		// try
 		int reponseUser;
 		do {
 			System.out.println("Quel option voulez vous choisir ?:");
-			System.out.println("1) Résoudre manuellement");
-			System.out.println("2) Résoudre automatiquement");
+			System.out.println("1) Rï¿½soudre manuellement");
+			System.out.println("2) Rï¿½soudre automatiquement");
 			System.out.println("3) Sauvegarder");
 			System.out.println("4) Fin");
 			reponseUser=sc.nextInt();
@@ -46,14 +46,14 @@ public class Menu {
 				System.out.println("Vous avez terminer le programme !");
 			default:
 				System.out.println("Vous avez choisi l'option :"+reponseUser+"!");
-				System.out.println("Aucune option trouvé !");
-				System.out.println("Veuillez reitérez votre choix !");
+				System.out.println("Aucune option trouvï¿½ !");
+				System.out.println("Veuillez reitï¿½rez votre choix !");
 				break;
 			}
 		}while(reponseUser!=4);
 	}
 	/**
-	 * Méthode créeant une communaute selon les instructions de l'utilisateur
+	 * Mï¿½thode crï¿½eant une communaute selon les instructions de l'utilisateur
 	 * @param fileName chemin du fichier contenant la communaute
 	 * @return Communaute voulu par l'utilisateur
 	 */
@@ -63,10 +63,10 @@ public class Menu {
 		return com;
 	}
 	/**
-	 * Méthode permettant de configurer les routes d'une communauté jusqu'a l'interruption de l'utilisateur,
-	 * on peut ainsi ajouter des routes entres 2 villes de manière intéractive
-	 * @param communaute qui doit être configuré
-	 * @param sc scanner pour récuper une entrée utilisateur
+	 * Mï¿½thode permettant de configurer les routes d'une communautï¿½ jusqu'a l'interruption de l'utilisateur,
+	 * on peut ainsi ajouter des routes entres 2 villes de maniï¿½re intï¿½ractive
+	 * @param communaute qui doit ï¿½tre configurï¿½
+	 * @param sc scanner pour rï¿½cuper une entrï¿½e utilisateur
 	 */
 	public static void configureRoutes(Communaute com,Scanner sc) {
 		int nb=com.getVilles().length;
@@ -94,10 +94,10 @@ public class Menu {
 		}
 	}
 	/**
-	 * Méthode permettant de configurer les écoles d'une communauté,
-	 * elle ajoute des écoles dans une ville choisi de manière intéractive
-	 * @param com dont on souhaite rajouter des écoles
-	 * @param sc scanner pour récuper une entrée utilisateur
+	 * Mï¿½thode permettant de configurer les ï¿½coles d'une communautï¿½,
+	 * elle ajoute des ï¿½coles dans une ville choisi de maniï¿½re intï¿½ractive
+	 * @param com dont on souhaite rajouter des ï¿½coles
+	 * @param sc scanner pour rï¿½cuper une entrï¿½e utilisateur
 	 */
 	private static void resolutionManuelle(Communaute com,Scanner sc) {
 		int choix=1;
@@ -108,16 +108,19 @@ public class Menu {
 			System.out.println(" 2 : supprimer une ecole ");
 			System.out.println(" 3 : fin ");
 			choix =sc.nextInt();
+			sc.nextLine();
 			switch(choix) {
 			case 1:
 				System.out.println(" Dans quelle ville ajouter l'ecole ?  ");
 				ville1=sc.nextLine();
+				sc.nextLine();
 				com.getVilles()[com.getVilleKey(ville1)].addEcole();
 				break;
 				
 			case 2:
 				System.out.println(" Dans quelle ville supprimer l'ecole ?  ");
 				ville2=sc.nextLine();
+				sc.nextLine();
 				com.getVilles()[com.getVilleKey(ville2)].supprEcole();
 			default:
 				break;
@@ -126,7 +129,7 @@ public class Menu {
 	}
 	
 	/**
-	 * Méthode permet de donner une solution optimale du problème des ecoles.
+	 * Mï¿½thode permet de donner une solution optimale du problï¿½me des ecoles.
 	 * 
 	 * @param com la communaute ou il faut trouver une solution
 	 */
@@ -136,7 +139,7 @@ public class Menu {
 	}
 	
 	/**
-	 * Méthode permet de sauvegarder la solution dans un fichier.
+	 * Mï¿½thode permet de sauvegarder la solution dans un fichier.
 	 * 
 	 * @param com la communaute de la solution
 	 * @param sc scanner pour recuperer l'emplacement du fichier 

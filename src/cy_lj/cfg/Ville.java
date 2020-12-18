@@ -85,7 +85,6 @@ public class Ville {
 	 */
 	public void supprEcole2() {
 		if(this.hasEcole()) {
-			System.out.println(this.com);
 			Ville[] tabVoisins=this.com.getTabVoisins(this);
 			for(int i=0;i<tabVoisins.length;i++) {
 				if(tabVoisins[i].hasEcole()) {

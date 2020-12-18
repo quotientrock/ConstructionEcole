@@ -39,7 +39,7 @@ public class LectureFichier {
 			}
 			for(int i=0;i<com.getVilles().length && access==true;i++) {
 				if(!ecole.contains(com.getVilles()[i].getName())){
-					com.getVilles()[i].supprEcole2();
+					com.getVilles()[i].supprEcole();
 					if(com.getVilles()[i].hasEcole()) {
 						access=false;
 					}
