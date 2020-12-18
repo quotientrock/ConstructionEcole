@@ -1,4 +1,4 @@
-package cy_lj.cfg;
+  package cy_lj.cfg;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -10,7 +10,7 @@ public class LectureFichier {
 		
 	public static Communaute Configure(String file) {
 		ArrayList<Ville> villes = new ArrayList<Ville>();
-		ArrayList<Character> ecole= new ArrayList<Character>();
+		ArrayList<String> ecole= new ArrayList<String>();
 		boolean access=true;
 		Communaute com = null;
 		FileReader fReader = null;
@@ -23,15 +23,17 @@ public class LectureFichier {
 		BufferedReader bReader=new BufferedReader( fReader ) ;
 		String ligne= null ;
 		try {
+			while ((ligne = bReader.readLine()) != null )
+  
 			while ((ligne = bReader.readLine()) != null && ligne.startsWith("ville")) {
-					villes.add(new Ville(ligne.charAt(7),com));
+					villes.add(new Ville((ligne.substring(6,7)),com));
 				}
 			com = new Communaute((Ville[]) villes.toArray(),villes.size());
 			while ((ligne = bReader.readLine()) != null && ligne.startsWith("route")) {
-				com.addRoad(ligne.charAt(7),ligne.charAt(9));
+				com.addRoad(ligne.substring(6,7),ligne.substring(8,9));
 			}
 			while ((ligne = bReader.readLine()) != null && ligne.startsWith("ecole")) {
-					ecole.add(ligne.charAt(7));
+					ecole.add(ligne.substring(6,7));
 			}
 			for(int i=0;i<com.getVilles().length && access==true;i++) {
 				if(!ecole.contains(com.getVilles()[i].getName())){
