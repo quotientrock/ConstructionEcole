@@ -114,8 +114,12 @@ public class Menu {
 		}
 	}
 	
-	
-	public static void resolutionAutomatique(Communaute com,String fileName) {
+	/**
+	 * Méthode permet de donner une solution optimale du problème des ecoles.
+	 * 
+	 * @param com la communaute ou il faut trouver une solution
+	 */
+	public static void resolutionAutomatique(Communaute com) {
 		AlgorithmeEcole.algoEcole(com);
 		com.afficheEcoleVille();
 	}
