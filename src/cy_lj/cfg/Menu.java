@@ -69,6 +69,7 @@ public class Menu {
 	 */
 	public static Communaute configureCommunaute(String fileName) {
 		Communaute com= LectureFichier.Configure(fileName);
+		com.afficheEcoleVille();
 		return com;
 	}
 	/**
@@ -110,8 +111,10 @@ public class Menu {
 	 */
 	private static void resolutionManuelle(Communaute com,Scanner sc) {
 		int choix=1;
-		String ville1=" ", ville2=" ";
-		while(choix>=1 && choix<=2) {
+		String ville1="", ville2="";
+		while(choix!=3) {
+			com.afficheVille();
+			com.afficheEcoleVille();
 			System.out.println(" 1 : ajouter une ecole ");
 			System.out.println(" 2 : supprimer une ecole ");
 			System.out.println(" 3 : fin ");
@@ -121,41 +124,37 @@ public class Menu {
 			}catch(Exception e) {
 				System.out.println("Erreur entrée");
 				choix=0;
-				sc.next();
 			}
 			
 			switch(choix) {
 			case 1:
 				System.out.println(" Dans quelle ville ajouter l'ecole ?  ");
-				com.afficheVille();
-				com.afficheEcoleVille();
 				try {
-					sc.next();
 					ville1=sc.nextLine();
-				}catch(Exception e) {
-					System.out.println("Erreur entrée");
-					break;
-				}
+					}catch(Exception e) {
+						System.out.println("Erreur entrée");
+						break;
+					}
 				try {
-				System.out.println(com.getVilleKey(ville1));
 				com.getVilles()[com.getVilleKey(ville1)].addEcole();
-				}catch(Exception e) {
-					System.out.println("Problème d'entrée");
-				}
+			}catch(Exception e) {
+				System.out.println("Problème d'entrée");
+			}
 				break;
 				
 			case 2:
 				System.out.println(" Dans quelle ville supprimer l'ecole ?  ");
 				try {
-				ville2=sc.nextLine();
+					ville2=sc.nextLine();
+					}catch(Exception e) {
+						System.out.println("Erreur entrée");
+						break;
+					}
+				try {
 				com.getVilles()[com.getVilleKey(ville2)].supprEcole();
-				}catch(Exception e) {
-					System.out.println("Problème d'entrée");
-					sc.next();
-				}
-				break;
-			default:
-				System.out.println("Vous avez choisi une entrée incorrecte !");
+			}catch(Exception e) {
+				System.out.println("Problème d'entrée");
+			}
 				break;
 			}
 		}
@@ -167,7 +166,7 @@ public class Menu {
 	 * @param com la communaute ou il faut trouver une solution
 	 */
 	private static void resolutionAutomatique(Communaute com) {
-		Communaute solution=AlgorithmeEcole.algo2Sujet(com, 100);
+		Communaute solution=AlgorithmeEcole.algo2Sujet(com, 1);
 		solution.afficheEcoleVille();
 	}
 	
@@ -179,7 +178,6 @@ public class Menu {
 	 */
 	private static void sauvegarde(Communaute com, Scanner sc) {
 		System.out.println("Emplacement du fichier ? ");
-		sc.nextLine();
 		try {
 			BufferedWriter bW= new BufferedWriter(new FileWriter(sc.nextLine()));
 			for(int i=0;i<com.getVilles().length;i++) {
