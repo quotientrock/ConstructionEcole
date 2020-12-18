@@ -3,10 +3,47 @@ package cy_lj.cfg;
 import java.util.Scanner;
 /**
  * Classe utilitaire facilitant la configuration d'une communaute à l'aide de méthode.
+ * Cette classe regroupe les méthodes qui fournissent les options de configuration à l'utilisateur.
  */
 public class Menu {
 
-	
+	/**
+	 * Méthode qui va permettre de proposer de manière intéractive à l'utilisateur des commandes de
+	 * résolution du problème de configuration d'ecole
+	 * @param scanner permettant de recuperer le choix de l'utilisateur
+	 */
+	public static void menuUtilisateur(Scanner sc) {
+		System.out.println("Démarrage du menu pour la résolution du problème des écoles !");
+
+
+		int reponseUser;
+		do {
+			System.out.println("Donnez votre choix:");
+			System.out.println("1) Résoudre manuellement");
+			System.out.println("2) Résoudre automatiquement");
+			System.out.println("3) Sauvegarder");
+			System.out.println("4) Fin");
+			reponseUser=sc.nextInt();
+			switch(reponseUser) {
+			case 1: 
+				System.out.println("Vous avez choisi l'option 1");
+				Communaute com=configureCommunaute(sc);
+				configureRoutes(com,sc);
+				configureEcoles(com,sc);
+				break;
+			case 2:
+				System.out.println("Vous avez choisi l'option 2");
+				break;
+			case 3:
+				System.out.println("Vous avez choisi l'option 3");
+				break;
+			case 4:
+				System.out.println("Vous avez terminer le programme !");
+			default:
+				break;
+			}
+		}while(reponseUser!=4);
+	}
 	/**
 	 * Méthode créeant une communaute selon les instructions de l'utilisateur
 	 * @param scanner un objet permettant de récupérer une entrée utilisateur
