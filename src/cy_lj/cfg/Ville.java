@@ -43,7 +43,7 @@ public class Ville {
 		if (hasEcole()==false)
 		ecole=true;
 		else
-			System.out.println(" Deja une ecole dans la ville");
+			System.out.println(" Deja une ecole dans la ville:"+this.getName());
 	}
 	/**Méthode permettant de supprimer une ecole a la ville
 	 */

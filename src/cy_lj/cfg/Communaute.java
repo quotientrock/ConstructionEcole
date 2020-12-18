@@ -114,15 +114,22 @@ public class Communaute {
 	 * @param nom  nom d'une ville
 	 * @return numéro  numero d'une ville
 	 */
-	public int getVilleKey(String nom) {
+	public int getVilleKey(String nom){
+		int j=-1;
+		try {
 		for (int i=0;i<this.villesTab.length;i++) {
 			if(nom.equals(this.villesTab[i].getName())) {
 				return i;
 			}
 		}
-		System.out.println("Nous n'avons pas reussi à trouver: "+nom+" dans la liste des villes.");
-
+		if (j==-1) {
+		throw new Exception("Nous n'avons pas reussi à trouver: "+nom+" dans la liste des villes.");
+		}
+		}catch (Exception e) {
+			System.out.println(e);
+		}
 		return -1;
+
 	}
 	/**
 	 * Méhode permettant de récupérer le nom d'une ville à partir d'un numéro
@@ -167,14 +174,24 @@ public class Communaute {
 	 * Méthode permettant d'afficher les villes ayant une école et leur nombre
 	 */
 	public void afficheEcoleVille() {
-		 String ecole="";
+		String ecole="";
 		for(int i=0;i<this.villesTab.length;i++) {
 			if(this.villesTab[i].hasEcole()==true)
 				ecole=ecole+" "+this.villesTab[i].getName();
 				
 		}
-		System.out.println("Les villes ayant une école sont " + ecole);
+		System.out.println("Les villes ayant une école sont :" + ecole);
 		}
+	/**
+	 * méthode permettant d'afficher les villes de la communauté
+	 */
+	public void afficheVille() {
+		String villes="";
+		for(int i=0;i<this.villesTab.length;i++) {
+			villes=villes+" "+villesTab[i].getName();
+		}
+		System.out.println("Les villes de la communauté sont :"+villes);
+	}
 	/**
 	 * Méthode permettant d'ajouter une ville à la communaute
 	 * @param la ville à ajouter
@@ -229,6 +246,8 @@ public class Communaute {
 			if (indiceMin != i) {
 				echanger(tab, i, indiceMin);
 			}
+			System.out.println(tab[i].getName());
+			System.out.println(this.nbVoisins(tab[i]));
 		}
 		return tab;
 	}
@@ -246,8 +265,11 @@ public class Communaute {
 	 */
 	private int rechercheIndicePlusPetit(Ville[] tab, int indiceMin) {
 		for (int j = indiceMin + 1; j < tab.length; j++) {
+			System.out.println("j:"+j+"min"+indiceMin);
+			System.out.println("indice"+nbVoisins(tab[j])+"et"+nbVoisins(tab[indiceMin]));
 			if (nbVoisins(tab[j]) < nbVoisins(tab[indiceMin])) {
 				indiceMin = j;
+				System.out.println(j);
 			}
 		}
 		return indiceMin;

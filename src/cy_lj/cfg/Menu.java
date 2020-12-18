@@ -58,7 +58,7 @@ public class Menu {
 	 * @return Communaute voulu par l'utilisateur
 	 */
 	public static Communaute configureCommunaute(String fileName) {
-		Communaute com= LectureFichier.Configure(fileName);
+		Communaute com= LectureFichier2.Configure(fileName);
 		com.afficheEcoleVille();
 		return com;
 	}
@@ -103,6 +103,7 @@ public class Menu {
 		int choix=1;
 		String ville1="", ville2="";
 		while(choix>=1 && choix<=2) {
+			com.afficheVille();
 			com.afficheEcoleVille();
 			System.out.println(" 1 : ajouter une ecole ");
 			System.out.println(" 2 : supprimer une ecole ");
@@ -113,16 +114,15 @@ public class Menu {
 			case 1:
 				System.out.println(" Dans quelle ville ajouter l'ecole ?  ");
 				ville1=sc.nextLine();
-				sc.nextLine();
 				com.getVilles()[com.getVilleKey(ville1)].addEcole();
 				break;
 				
 			case 2:
 				System.out.println(" Dans quelle ville supprimer l'ecole ?  ");
 				ville2=sc.nextLine();
-				sc.nextLine();
 				com.getVilles()[com.getVilleKey(ville2)].supprEcole();
 			default:
+				System.out.println("Vous avez choisi une entrée incorrecte !");
 				break;
 			}
 		}
@@ -134,8 +134,8 @@ public class Menu {
 	 * @param com la communaute ou il faut trouver une solution
 	 */
 	private static void resolutionAutomatique(Communaute com) {
-		AlgorithmeEcole.algoEcole(com);
-		com.afficheEcoleVille();
+		Communaute solution=AlgorithmeEcole.algo2Sujet(com, 10000000);
+		solution.afficheEcoleVille();
 	}
 	
 	/**
