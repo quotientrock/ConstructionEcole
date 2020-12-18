@@ -12,10 +12,10 @@ public class Menu {
 	 * résolution du problème de configuration d'ecole
 	 * @param scanner permettant de recuperer le choix de l'utilisateur
 	 */
-	public static void menuUtilisateur(Scanner sc) {
+	public static void menuUtilisateur(Scanner sc,String fileName) {
 		System.out.println("Démarrage du menu pour la résolution du problème des écoles !");
 
-
+		Communaute com=configureCommunaute(fileName);
 		int reponseUser;
 		do {
 			System.out.println("Donnez votre choix:");
@@ -27,12 +27,11 @@ public class Menu {
 			switch(reponseUser) {
 			case 1: 
 				System.out.println("Vous avez choisi l'option 1");
-				Communaute com=configureCommunaute(sc);
-				configureRoutes(com,sc);
-				configureEcoles(com,sc);
+				resolutionManuelle(com,sc);
 				break;
 			case 2:
 				System.out.println("Vous avez choisi l'option 2");
+				resolutionAutomatique(com,fileName);
 				break;
 			case 3:
 				System.out.println("Vous avez choisi l'option 3");
@@ -49,12 +48,7 @@ public class Menu {
 	 * @param scanner un objet permettant de récupérer une entrée utilisateur
 	 * @return Communaute voulu par l'utilisateur
 	 */
-	public static Communaute configureCommunaute(Scanner sc,String fileName) {
-		int nb=0;
-		do{
-		System.out.println("nombre de villes(entre 1 et 26) : ");
-		nb = sc.nextInt();
-		}while(nb<1 && nb>26);
+	public static Communaute configureCommunaute(String fileName) {
 		Communaute com= LectureFichier.Configure(fileName);
 		com.afficheEcoleVille();
 		return com;
@@ -94,7 +88,7 @@ public class Menu {
 	 * elle ajoute des écoles dans une ville choisi de manière intéractive
 	 * @param communaute dont on souhaite rajouter des écoles
 	 */
-	public static void configureEcoles(Communaute com,Scanner sc) {
+	public static void resolutionManuelle(Communaute com,Scanner sc) {
 		int choix=1;
 		String ville1="", ville2="";
 		while(choix>=1 && choix<=2) {
@@ -121,11 +115,8 @@ public class Menu {
 	}
 	
 	
-	public static Communaute resolutionAutomatique(String fileName) {
-		Communaute com =LectureFichier.Configure(fileName);
+	public static void resolutionAutomatique(Communaute com,String fileName) {
 		AlgorithmeEcole.algoEcole(com);
 		com.afficheEcoleVille();
-		
-		return com;
 	}
 }
