@@ -167,7 +167,8 @@ public class Menu {
 	 * @param com la communaute ou il faut trouver une solution
 	 */
 	private static void resolutionAutomatique(Communaute com) {
-		Communaute solution=AlgorithmeEcole.algo2Sujet(com, 100);
+		//Communaute solution=AlgorithmeEcole.algo2Sujet(com, 10);
+		Communaute solution=AlgorithmeEcole.algoEcole(com);
 		solution.afficheEcoleVille();
 	}
 	

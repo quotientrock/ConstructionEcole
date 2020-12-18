@@ -207,8 +207,9 @@ public class Communaute {
 	public int nbVoisins(Ville uneVille) {
 		int indiceVille=getVilleKey(uneVille.getName());
 		int nbVoisinsVille=0;
-		for(boolean voisins : agglomeration[indiceVille]) {
-			if(voisins) {
+
+		for (int i=0;i<agglomeration[indiceVille].length;i++) {
+			if(agglomeration[indiceVille][i]) {
 				nbVoisinsVille++;
 			}
 		}
@@ -252,8 +253,8 @@ public class Communaute {
 	 */
 	private int rechercheIndicePlusPetit(Ville[] tab, int indiceMin) {
 		for (int j = indiceMin + 1; j < tab.length; j++) {
-			System.out.println("j:"+j+"min"+indiceMin);
-			System.out.println("indice"+nbVoisins(tab[j])+"et"+nbVoisins(tab[indiceMin]));
+			//System.out.println("j:"+j+"min"+indiceMin);
+			//System.out.println("indice"+nbVoisins(tab[j])+"et"+nbVoisins(tab[indiceMin]));
 			if (nbVoisins(tab[j]) < nbVoisins(tab[indiceMin])) {
 				indiceMin = j;
 				System.out.println(j);
