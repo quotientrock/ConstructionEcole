@@ -49,13 +49,13 @@ public class Menu {
 	 * @param scanner un objet permettant de récupérer une entrée utilisateur
 	 * @return Communaute voulu par l'utilisateur
 	 */
-	public static Communaute configureCommunaute(Scanner sc) {
+	public static Communaute configureCommunaute(Scanner sc,String fileName) {
 		int nb=0;
 		do{
 		System.out.println("nombre de villes(entre 1 et 26) : ");
 		nb = sc.nextInt();
 		}while(nb<1 && nb>26);
-		Communaute com= new Communaute(nb);
+		Communaute com= LectureFichier.Configure(fileName);
 		com.afficheEcoleVille();
 		return com;
 	}
