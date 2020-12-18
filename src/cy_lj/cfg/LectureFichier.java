@@ -1,4 +1,4 @@
-package ecole;
+package cy_lj.cfg;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
