@@ -17,9 +17,10 @@ public class Menu {
 		System.out.println("Démarrage du menu pour la résolution du problème des écoles !");
 
 		Communaute com=configureCommunaute(fileName);
+		// try
 		int reponseUser;
 		do {
-			System.out.println("Donnez votre choix:");
+			System.out.println("Quel option voulez vous choisir ?:");
 			System.out.println("1) Résoudre manuellement");
 			System.out.println("2) Résoudre automatiquement");
 			System.out.println("3) Sauvegarder");
@@ -40,6 +41,9 @@ public class Menu {
 			case 4:
 				System.out.println("Vous avez terminer le programme !");
 			default:
+				System.out.println("Vous avez choisi l'option :"+reponseUser+"!");
+				System.out.println("Aucune option trouvé !");
+				System.out.println("Veuillez reitérez votre choix !");
 				break;
 			}
 		}while(reponseUser!=4);

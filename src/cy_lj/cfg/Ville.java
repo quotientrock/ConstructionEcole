@@ -75,7 +75,23 @@ public class Ville {
 			System.out.println(" Aucune ecole dans la ville");
 		
 	}
-	
+	/**
+	 * Version simplifié de supprEcole
+	 * Méthode permettant de supprimer une ecole a la ville
+	 */
+	public void supprEcole2() {
+		if(this.hasEcole()) {
+			Ville[] tabVoisins=this.com.getTabVoisins(this);
+			for(int i=0;i<tabVoisins.length;i++) {
+				if(tabVoisins[i].hasEcole()) {
+					this.ecole=false;
+				}
+			}
+		}
+		else {
+			System.out.println(" Aucune ecole dans la ville : "+this.getName());
+		}
+	}
 	
 	@Override
 	public boolean equals(Object object) {

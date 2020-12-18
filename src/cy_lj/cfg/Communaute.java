@@ -124,6 +124,18 @@ public class Communaute {
 	public String getVilleName(int i) {
 		return villesTab[i].getName();
 	}
+	public Ville[] getTabVoisins(Ville v) {
+		int indiceVille=this.getVilleKey(v.getName());
+		int nbVoisins=this.nbVoisins(v);
+		int indiceNbVoisins=0;
+		Ville[] tabVoisins= new Ville[nbVoisins];
+		for (int i=0;i<(this.agglomeration[indiceVille]).length;i++) {
+			if(this.agglomeration[indiceVille][i]) {
+				tabVoisins[indiceNbVoisins]=this.villesTab[i];
+			}
+		}
+		return tabVoisins;
+	}
 	/**
 	 * Méthode permettant de vérifier si deux villes sont voisines
 	 * @param nom d'une ville
