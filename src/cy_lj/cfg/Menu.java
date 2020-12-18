@@ -20,6 +20,8 @@ public class Menu {
 		System.out.println("Démarrage du menu pour la résolution du problème des écoles !");
 
 		Communaute com=configureCommunaute(fileName);
+		//com.afficheEcoleVille();
+		//com.afficheVille();
 		// try
 		int reponseUser;
 		do {
@@ -28,7 +30,14 @@ public class Menu {
 			System.out.println("2) Résoudre automatiquement");
 			System.out.println("3) Sauvegarder");
 			System.out.println("4) Fin");
+			try {
 			reponseUser=sc.nextInt();
+			sc.nextLine();
+			}catch(Exception e) {
+				System.out.println("Erreur entrée");
+				reponseUser=0;
+				sc.next();
+			}
 			switch(reponseUser) {
 			case 1: 
 				System.out.println("Vous avez choisi l'option 1");
@@ -58,7 +67,7 @@ public class Menu {
 	 * @return Communaute voulu par l'utilisateur
 	 */
 	public static Communaute configureCommunaute(String fileName) {
-		Communaute com= LectureFichier2.Configure(fileName);
+		Communaute com= LectureFichier.Configure(fileName);
 		com.afficheEcoleVille();
 		return com;
 	}
@@ -103,24 +112,42 @@ public class Menu {
 		int choix=1;
 		String ville1="", ville2="";
 		while(choix>=1 && choix<=2) {
-			com.afficheVille();
-			com.afficheEcoleVille();
 			System.out.println(" 1 : ajouter une ecole ");
 			System.out.println(" 2 : supprimer une ecole ");
 			System.out.println(" 3 : fin ");
+			try {
 			choix =sc.nextInt();
 			sc.nextLine();
+			}catch(Exception e) {
+				System.out.println("Erreur entrée");
+				choix=0;
+				sc.next();
+			}
+			
 			switch(choix) {
 			case 1:
 				System.out.println(" Dans quelle ville ajouter l'ecole ?  ");
-				ville1=sc.nextLine();
+				com.afficheVille();
+				com.afficheEcoleVille();
+				try {
+					sc.next();
+					ville1=sc.nextLine();
+				}catch(Exception e) {
+					System.out.println("Erreur entrée");
+					break;
+				}
+				try {
 				com.getVilles()[com.getVilleKey(ville1)].addEcole();
+				}catch(Exception e) {
+					System.out.println("Problème d'entrée");
+				}
 				break;
 				
 			case 2:
 				System.out.println(" Dans quelle ville supprimer l'ecole ?  ");
 				ville2=sc.nextLine();
 				com.getVilles()[com.getVilleKey(ville2)].supprEcole();
+				break;
 			default:
 				System.out.println("Vous avez choisi une entrée incorrecte !");
 				break;
@@ -134,7 +161,7 @@ public class Menu {
 	 * @param com la communaute ou il faut trouver une solution
 	 */
 	private static void resolutionAutomatique(Communaute com) {
-		Communaute solution=AlgorithmeEcole.algo2Sujet(com, 10000000);
+		Communaute solution=AlgorithmeEcole.algo2Sujet(com, 1);
 		solution.afficheEcoleVille();
 	}
 	

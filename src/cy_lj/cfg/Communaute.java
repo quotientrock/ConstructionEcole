@@ -115,30 +115,16 @@ public class Communaute {
 	 * @return numéro  numero d'une ville
 	 */
 	public int getVilleKey(String nom){
-		int j=-1;
-		try {
+
 		for (int i=0;i<this.villesTab.length;i++) {
 			if(nom.equals(this.villesTab[i].getName())) {
 				return i;
 			}
 		}
-		if (j==-1) {
-		throw new Exception("Nous n'avons pas reussi à trouver: "+nom+" dans la liste des villes.");
-		}
-		}catch (Exception e) {
-			System.out.println(e);
-		}
 		return -1;
 
 	}
-	/**
-	 * Méhode permettant de récupérer le nom d'une ville à partir d'un numéro
-	 * @param numéro d'une ville
-	 * @return nom de la ville
-	 */
-	public String getVilleName(int i) {
-		return villesTab[i].getName();
-	}
+
 	public Ville[] getTabVoisins(Ville v) {
 		int indiceVille=this.getVilleKey(v.getName());
 		int nbVoisins=this.nbVoisins(v);
@@ -295,6 +281,9 @@ public class Communaute {
 				nbEcole++;
 			}
 		}
+		this.afficheVille();
+		this.afficheEcoleVille();
+		System.out.println(nbEcole);
 		return nbEcole;
 	}
 }
