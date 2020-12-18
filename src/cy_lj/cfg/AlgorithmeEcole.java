@@ -20,4 +20,16 @@ public class AlgorithmeEcole {
 			tabVilles[i].supprEcole();
 		}
 	}
+	
+	
+	public static void algo2Sujet(Communaute com,int k) {
+		int i=0;
+		int scoreCourant=com.getNbEcoles();
+		while(i<k) {
+			int indiceVilleAleatoire=(int)(Math.random() * (com.getVilles().length));
+			if(com.getVilles()[indiceVilleAleatoire].hasEcole()) {
+				
+			}
+		}
+	}
 }

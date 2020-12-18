@@ -255,4 +255,14 @@ public class Communaute {
 		tab[i] = tab[j];
 		tab[j] = tmpVal;
 	}
+	
+	public int getNbEcoles() {
+		int nbEcole=0;
+		for(int i=0;i<this.villesTab.length;i++) {
+			if(villesTab[i].hasEcole()) {
+				nbEcole++;
+			}
+		}
+		return nbEcole;
+	}
 }
