@@ -1,5 +1,8 @@
 package cy_lj.cfg;
-
+/**
+ * Classe servant a définir une ville 
+ * Elle possède les méthodes associées aux écoles
+ * */
 
 public class Ville {
 	private String nom;
