@@ -75,7 +75,6 @@ public class Menu {
 		String ville1="", ville2="";
 
 		while(nb<=26 && choix!=2) {
-			com.afficheVille();
 			System.out.println(" 1 : ajouter une route ");
 			System.out.println(" 2 : Fin ");
 			choix =sc.nextInt();
@@ -105,6 +104,7 @@ public class Menu {
 		int choix=1;
 		String ville1="", ville2="";
 		while(choix>=1 && choix<=2) {
+			com.afficheVille();
 			com.afficheEcoleVille();
 			System.out.println(" 1 : ajouter une ecole ");
 			System.out.println(" 2 : supprimer une ecole ");
@@ -123,6 +123,7 @@ public class Menu {
 				ville2=sc.nextLine();
 				com.getVilles()[com.getVilleKey(ville2)].supprEcole();
 			default:
+				System.out.println("Vous avez choisi une entrée incorrecte !");
 				break;
 			}
 		}
