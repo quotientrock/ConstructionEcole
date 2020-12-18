@@ -9,6 +9,7 @@ public class Menu {
 	
 	/**
 	 * Méthode créeant une communaute selon les instructions de l'utilisateur
+	 * @param scanner un objet permettant de récupérer une entrée utilisateur
 	 * @return Communaute voulu par l'utilisateur
 	 */
 	public static Communaute configureCommunaute(Scanner sc) {
@@ -22,7 +23,9 @@ public class Menu {
 		return com;
 	}
 	/**
-	 * Méthode permettant de configurer les routes d'une communauté jusqu'a l'interruption de l'utilisateur
+	 * Méthode permettant de configurer les routes d'une communauté jusqu'a l'interruption de l'utilisateur,
+	 * on peut ainsi ajouter des routes entres 2 villes de manière intéractive
+	 * @param communaute qui doit être configuré
 	 */
 	public static void configureRoutes(Communaute com,Scanner sc) {
 		int nb=com.getVilles().length;
@@ -50,7 +53,9 @@ public class Menu {
 		}
 	}
 	/**
-	 * Méthode permettant de configurer les écoles d'une communauté
+	 * Méthode permettant de configurer les écoles d'une communauté,
+	 * elle ajoute des écoles dans une ville choisi de manière intéractive
+	 * @param communaute dont on souhaite rajouter des écoles
 	 */
 	public static void configureEcoles(Communaute com,Scanner sc) {
 		int nb=com.getVilles().length;

@@ -148,7 +148,7 @@ public class Communaute {
 		return agglomeration[a][b];
 	}
 	/**
-	 * Méthode permettant d'afficher les villes ayant une écoles et leur nombre
+	 * Méthode permettant d'afficher les villes ayant une école et leur nombre
 	 */
 	public void afficheEcoleVille(int nb) {
 		 String ecole="";
