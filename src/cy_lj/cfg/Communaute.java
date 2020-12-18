@@ -19,6 +19,7 @@ public class Communaute {
 	public Communaute(int size) {
 		this.agglomeration=new boolean[size][size];
 		this.villesTab=new Ville[size];
+
 	}
 	/**
 	 * Constructeur d'une communauté permettant de d'initialiser les attributs
@@ -29,6 +30,9 @@ public class Communaute {
 		this.agglomeration=new boolean[size][size];
 		if (vTab.length==size) {
 			this.villesTab=vTab;
+			for(int i=0;i<this.villesTab.length;i++) {
+				villesTab[i].modifCommu(this);
+			}
 		}
 		else {
 			System.out.println("La taille du tableau ville donnée n'est pas égale à la taille donné en arguments.");
@@ -97,8 +101,12 @@ public class Communaute {
 	 * @param numéro représentant une autre ville à relié
 	 */
 	public void addRoad(int a,int b) {
+		try {
 		this.agglomeration[a][b]=true;
 		this.agglomeration[b][a]=true;
+		}catch(IndexOutOfBoundsException e) {
+			System.out.println("Impossible d'ajouter une route entre :"+a+" et "+b+" car indicé erronée");
+		}
 	}
 	/**
 	 * Méthode permettant de recupérer le numéro d'une ville 
@@ -108,11 +116,12 @@ public class Communaute {
 	 */
 	public int getVilleKey(String nom) {
 		for (int i=0;i<this.villesTab.length;i++) {
-			if(nom==villesTab[i].getName()) {
+			if(nom.equals(this.villesTab[i].getName())) {
 				return i;
 			}
 		}
-		System.out.println("Nous n'avons pas reussi à trouver le nom dans la liste des villes.");
+		System.out.println("Nous n'avons pas reussi à trouver: "+nom+" dans la liste des villes.");
+
 		return -1;
 	}
 	/**

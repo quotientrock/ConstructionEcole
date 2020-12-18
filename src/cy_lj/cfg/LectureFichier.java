@@ -30,6 +30,7 @@ public class LectureFichier {
 			Ville villesTab[]= new Ville[villes.size()];
 			villesTab= villes.toArray(villesTab);
 			com = new Communaute( villesTab,villes.size());
+
 			while ((ligne = bReader.readLine()) != null && ligne.startsWith("route")) {
 				com.addRoad(ligne.substring(6,7),ligne.substring(8,9));
 			}
@@ -38,7 +39,7 @@ public class LectureFichier {
 			}
 			for(int i=0;i<com.getVilles().length && access==true;i++) {
 				if(!ecole.contains(com.getVilles()[i].getName())){
-					com.getVilles()[i].supprEcole();
+					com.getVilles()[i].supprEcole2();
 					if(com.getVilles()[i].hasEcole()) {
 						access=false;
 					}

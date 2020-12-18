@@ -30,8 +30,12 @@ public class Ville {
 		ecole=true;
 	}
 	
-		
-		
+	/**Méthode permettant de modifier la communauté d'une ville
+	 * 
+	 */
+	public void modifCommu(Communaute comu) {
+		this.com=comu;
+	}
 	
 	/**Méthode permettant d'ajouter une ecole a la ville
 	 */
@@ -81,6 +85,7 @@ public class Ville {
 	 */
 	public void supprEcole2() {
 		if(this.hasEcole()) {
+			System.out.println(this.com);
 			Ville[] tabVoisins=this.com.getTabVoisins(this);
 			for(int i=0;i<tabVoisins.length;i++) {
 				if(tabVoisins[i].hasEcole()) {
