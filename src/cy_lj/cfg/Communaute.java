@@ -19,7 +19,6 @@ public class Communaute {
 	public Communaute(int size) {
 		this.agglomeration=new boolean[size][size];
 		this.villesTab=new Ville[size];
-
 	}
 	/**
 	 * Constructeur d'une communauté permettant de d'initialiser les attributs

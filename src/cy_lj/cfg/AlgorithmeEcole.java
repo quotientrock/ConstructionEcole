@@ -7,8 +7,16 @@ package cy_lj.cfg;
 public class AlgorithmeEcole {
 	
 	public static void algoEcole(Communaute com) {
+		
 		Ville[] tabVilles=com.getTabSortedByDegree();
-		for (int i=0;i<0;i++) {
+		//Initialisation tel que toutes les villes ont une écoles!
+		for (int  j=0;j<tabVilles.length;j++) {
+			if(!tabVilles[j].hasEcole()) {
+				tabVilles[j].addEcole();
+			}
+		}
+
+		for (int i=0;i<tabVilles.length;i++) {
 			tabVilles[i].supprEcole();
 		}
 	}

@@ -9,7 +9,7 @@ public class ConfigureEcole {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		//Menu.menuUtilisateur(sc);
+		Menu.menuUtilisateur(sc,"C:\\Users\\christophe\\Documents\\uni\\pooAvancee\\fileProjet\\exemple.ca");
 		sc.close();
 		
 
