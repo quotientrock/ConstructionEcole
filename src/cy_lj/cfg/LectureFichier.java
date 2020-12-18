@@ -27,7 +27,9 @@ public class LectureFichier {
 			while ((ligne = bReader.readLine()) != null && ligne.startsWith("ville")) {
 					villes.add(new Ville((ligne.substring(6,7)),com));
 				}
-			com = new Communaute((Ville[]) villes.toArray(),villes.size());
+			Ville villesTab[]= new Ville[villes.size()];
+			villesTab= villes.toArray(villesTab);
+			com = new Communaute( villesTab,villes.size());
 			while ((ligne = bReader.readLine()) != null && ligne.startsWith("route")) {
 				com.addRoad(ligne.substring(6,7),ligne.substring(8,9));
 			}
