@@ -53,6 +53,7 @@ public class Menu {
 				break;
 			case 4:
 				System.out.println("Vous avez terminer le programme !");
+				break;
 			default:
 				System.out.println("Vous avez choisi l'option :"+reponseUser+"!");
 				System.out.println("Aucune option trouvé !");
