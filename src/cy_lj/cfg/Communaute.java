@@ -10,7 +10,7 @@ package cy_lj.cfg;
  */
 public class Communaute {
 	
-	private boolean Agglomeration[][];
+	private boolean agglomeration[][];
 	private Ville villesTab[];
 	/**
 	 * Constructeur d'une communauté permettant de d'initialiser les attributs
@@ -18,7 +18,7 @@ public class Communaute {
 	 */
 	public Communaute(int size) {
 		char name;
-		this.Agglomeration=new boolean[size][size];
+		this.agglomeration=new boolean[size][size];
 		this.villesTab=new Ville[size];
 		this.villesTab[0]= new Ville(true,'A',this);
 		for(int i=1;i<size;i++) {
@@ -32,7 +32,7 @@ public class Communaute {
 	 * @param size donne le nombre de villes de la communauté
 	 */
 	public Communaute(Ville vTab[],int size) {
-		this.Agglomeration=new boolean[size][size];
+		this.agglomeration=new boolean[size][size];
 		if (vTab.length==size) {
 			this.villesTab=vTab;
 		}
@@ -44,19 +44,19 @@ public class Communaute {
 	}
 	/**
 	 * Constructeur d'une communauté permettant de d'initialiser les attributs
-	 * @param Agglo la matrice d'adjacence représentant la communauté
+	 * @param agglo la matrice d'adjacence représentant la communauté
 	 * @param vTab le tableau de noms des villes
 	 */
-	public Communaute(boolean Agglo[][],Ville vTab[]) {
-		if(Agglo[0].length==vTab.length && isSymetric(Agglo)) {
-		this.Agglomeration=Agglo;
+	public Communaute(boolean agglo[][],Ville vTab[]) {
+		if(agglo[0].length==vTab.length && isSymetric(agglo)) {
+		this.agglomeration=agglo;
 		this.villesTab=vTab;
 		}
 		else {
 			System.out.println("Les dimensions ne sont pas respectés ou la matrice n'est pas symmétrique");
-			System.out.println("L'agglomeration et le tableau de villes ont été initialisé par défaut de taille"+Agglo[0].length);
-			int size=Agglo[0].length;
-			this.Agglomeration=new boolean[size][size];
+			System.out.println("L'agglomeration et le tableau de villes ont été initialisé par défaut de taille"+agglo[0].length);
+			int size=agglo[0].length;
+			this.agglomeration=new boolean[size][size];
 			this.villesTab=new Ville[size];
 		}
 	}
@@ -103,8 +103,8 @@ public class Communaute {
 	 * @param numéro représentant une autre ville à relié
 	 */
 	public void addRoad(int a,int b) {
-		this.Agglomeration[a][b]=true;
-		this.Agglomeration[b][a]=true;
+		this.agglomeration[a][b]=true;
+		this.agglomeration[b][a]=true;
 	}
 	/**
 	 * Méthode permettant de recupérer le numéro d'une ville 
@@ -145,7 +145,7 @@ public class Communaute {
 	 * @return true si les deux villes sont voisines
 	 */
 	public boolean estVoisins(int a, int b) {
-		return Agglomeration[a][b];
+		return agglomeration[a][b];
 	}
 	/**
 	 * Méthode permettant d'afficher les villes ayant une écoles et leur nombre
