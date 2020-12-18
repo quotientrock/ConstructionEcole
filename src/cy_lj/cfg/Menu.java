@@ -67,7 +67,7 @@ public class Menu {
 	public static void configureRoutes(Communaute com,Scanner sc) {
 		int nb=com.getVilles().length;
 		int choix=1;
-		char ville1=' ', ville2=' ';
+		String ville1="", ville2="";
 
 		while(nb<=26 && choix!=2) {
 			System.out.println(" 1 : ajouter une route ");
@@ -77,10 +77,10 @@ public class Menu {
 			case 1:
 				System.out.println(" Premiere ville : ");
 				sc.nextLine();
-				ville1=sc.next().charAt(0);
+				ville1=sc.nextLine();
 				System.out.println(" Deuxieme ville : ");
 				sc.nextLine();
-				ville2=sc.next().charAt(0);
+				ville2=sc.nextLine();
 				com.addRoad(ville1,ville2);
 				break;
 					
@@ -96,7 +96,7 @@ public class Menu {
 	 */
 	public static void configureEcoles(Communaute com,Scanner sc) {
 		int choix=1;
-		char ville1=' ', ville2=' ';
+		String ville1="", ville2="";
 		while(choix>=1 && choix<=2) {
 			com.afficheEcoleVille();
 			System.out.println(" 1 : ajouter une ecole ");
@@ -106,13 +106,13 @@ public class Menu {
 			switch(choix) {
 			case 1:
 				System.out.println(" Dans quelle ville ajouter l'ecole ?  ");
-				ville1=sc.next().charAt(0);
+				ville1=sc.nextLine();
 				com.getVilles()[com.getVilleKey(ville1)].addEcole();
 				break;
 				
 			case 2:
 				System.out.println(" Dans quelle ville supprimer l'ecole ?  ");
-				ville2=sc.next().charAt(0);
+				ville2=sc.nextLine();
 				com.getVilles()[com.getVilleKey(ville2)].supprEcole();
 			default:
 				break;

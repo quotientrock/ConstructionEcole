@@ -2,7 +2,7 @@ package cy_lj.cfg;
 
 
 public class Ville {
-	private char nom;
+	private String nom;
 	private boolean ecole;
 	private Communaute com;
 	
@@ -13,7 +13,7 @@ public class Ville {
 	 * @param com   donne la communaute associee a la ville
 	 */
 
-	public Ville(boolean ecole, char nom, Communaute com) {
+	public Ville(boolean ecole, String nom, Communaute com) {
 		this.com=com;
 		this.nom=nom;
 		this.ecole=ecole;
@@ -24,7 +24,7 @@ public class Ville {
 	 * @param nom   donne un nom a la ville 
 	 * @param com   donne la communaute associee a la ville
 	 */
-	public Ville(char nom, Communaute com) {
+	public Ville(String nom, Communaute com) {
 		this.com=com;
 		this.nom=nom;
 		ecole=true;
@@ -96,7 +96,7 @@ public class Ville {
 	/**Getter
 	 * @return nom
 	 */
-	public char getName() {
+	public String getName() {
 		return nom;
 	}
 

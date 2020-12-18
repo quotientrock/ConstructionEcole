@@ -17,14 +17,9 @@ public class Communaute {
 	 * @param size donne le nombre de villes de la communauté
 	 */
 	public Communaute(int size) {
-		char name;
 		this.agglomeration=new boolean[size][size];
 		this.villesTab=new Ville[size];
-		this.villesTab[0]= new Ville(true,'A',this);
-		for(int i=1;i<size;i++) {
-			name =(char) (villesTab[0].getName()+i);
-			this.villesTab[i]= new Ville(true,name,this);
-		}
+
 	}
 	/**
 	 * Constructeur d'une communauté permettant de d'initialiser les attributs
@@ -93,7 +88,7 @@ public class Communaute {
 	 * @param nom d'une ville
 	 * @param nom d'une autre ville à relié
 	 */
-	public void addRoad(char nomA, char nomB) {
+	public void addRoad(String nomA, String nomB) {
 		addRoad(getVilleKey(nomA),getVilleKey(nomB));
 	}
 	/**
@@ -112,7 +107,7 @@ public class Communaute {
 	 * @param nom  nom d'une ville
 	 * @return numéro  numero d'une ville
 	 */
-	public int getVilleKey(char nom) {
+	public int getVilleKey(String nom) {
 		for (int i=0;i<this.villesTab.length;i++) {
 			if(nom==villesTab[i].getName()) {
 				return i;
@@ -126,7 +121,7 @@ public class Communaute {
 	 * @param numéro d'une ville
 	 * @return nom de la ville
 	 */
-	public char getVilleName(int i) {
+	public String getVilleName(int i) {
 		return villesTab[i].getName();
 	}
 	/**
@@ -135,7 +130,7 @@ public class Communaute {
 	 * @param nom de la ville à relié
 	 * @return true si les deux villes sont voisines
 	 */
-	public boolean estVoisins(char nomA, char nomB){
+	public boolean estVoisins(String nomA, String nomB){
 		return estVoisins(getVilleKey(nomA),getVilleKey(nomB));
 	}
 	/**
