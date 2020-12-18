@@ -1,4 +1,4 @@
-  package cy_lj.cfg;
+ package cy_lj.cfg;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -22,20 +22,25 @@ public class LectureFichier {
 		}
 		BufferedReader bReader=new BufferedReader( fReader ) ;
 		String ligne= null ;
+		String valeurs[];
 		try {
   
 			while ((ligne = bReader.readLine()) != null && ligne.startsWith("ville")) {
-					villes.add(new Ville((ligne.substring(6,7)),com));
+				valeurs=ligne.split("\\(|\\)");
+					villes.add(new Ville(valeurs[1],com));
 				}
 			Ville villesTab[]= new Ville[villes.size()];
 			villesTab= villes.toArray(villesTab);
 			com = new Communaute( villesTab,villes.size());
 
 			while ((ligne = bReader.readLine()) != null && ligne.startsWith("route")) {
-				com.addRoad(ligne.substring(6,7),ligne.substring(8,9));
+				valeurs=ligne.split("\\(|\\)");
+				valeurs=valeurs[1].split("\\,");
+				com.addRoad(valeurs[0],valeurs[1]);
 			}
 			while ((ligne = bReader.readLine()) != null && ligne.startsWith("ecole")) {
-					ecole.add(ligne.substring(6,7));
+				valeurs=ligne.split("(|)");
+					ecole.add(valeurs[1]);
 			}
 			for(int i=0;i<com.getVilles().length && access==true;i++) {
 				if(!ecole.contains(com.getVilles()[i].getName())){
