@@ -10,5 +10,5 @@ TODO
 4-a)Nommage char  
 4-b)nom ville incorrect  
 4-c)nombre négatif  
-4-d)documentation menu  
+4-d)documentation menu  X
 4-e)GESTION EXCEPTIONS  
