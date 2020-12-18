@@ -150,11 +150,11 @@ public class Communaute {
 	/**
 	 * Méthode permettant d'afficher les villes ayant une école et leur nombre
 	 */
-	public void afficheEcoleVille(int nb) {
+	public void afficheEcoleVille() {
 		 String ecole="";
-		for(int i=0;i<nb;i++) {
-			if(villesTab[i].hasEcole()==true)
-				ecole=ecole+" "+villesTab[i].getName();
+		for(int i=0;i<this.villesTab.length;i++) {
+			if(this.villesTab[i].hasEcole()==true)
+				ecole=ecole+" "+this.villesTab[i].getName();
 				
 		}
 		System.out.println("Les villes ayant une école sont " + ecole);

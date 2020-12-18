@@ -6,4 +6,10 @@ package cy_lj.cfg;
  */
 public class AlgorithmeEcole {
 	
+	public static void algoEcole(Communaute com) {
+		Ville[] tabVilles=com.getTabSortedByDegree();
+		for (int i=0;i<0;i++) {
+			tabVilles[i].supprEcole();
+		}
+	}
 }

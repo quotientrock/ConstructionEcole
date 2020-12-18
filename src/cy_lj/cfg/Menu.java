@@ -56,7 +56,7 @@ public class Menu {
 		nb = sc.nextInt();
 		}while(nb<1 && nb>26);
 		Communaute com= new Communaute(nb);
-		com.afficheEcoleVille(nb);
+		com.afficheEcoleVille();
 		return com;
 	}
 	/**
@@ -95,11 +95,10 @@ public class Menu {
 	 * @param communaute dont on souhaite rajouter des écoles
 	 */
 	public static void configureEcoles(Communaute com,Scanner sc) {
-		int nb=com.getVilles().length;
 		int choix=1;
 		char ville1=' ', ville2=' ';
 		while(choix>=1 && choix<=2) {
-			com.afficheEcoleVille(nb);
+			com.afficheEcoleVille();
 			System.out.println(" 1 : ajouter une ecole ");
 			System.out.println(" 2 : supprimer une ecole ");
 			System.out.println(" 3 : fin ");
@@ -119,5 +118,14 @@ public class Menu {
 				break;
 			}
 		}
+	}
+	
+	
+	public static Communaute resolutionAutomatique(String fileName) {
+		Communaute com =LectureFichier.Configure(fileName);
+		AlgorithmeEcole.algoEcole(com);
+		com.afficheEcoleVille();
+		
+		return com;
 	}
 }
